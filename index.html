@@ -4,19 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Africa Football Predictions</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .photo {
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .photo img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .match {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            margin: 10px 0;
+        }
+
+        .locked {
+            background: #111827;
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .unlock-btn {
+            display: inline-block;
+            background: #16a34a;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #6b7280;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Africa Football Predictions</h1>
+<header>
+    <h1>⚽ Africa Football Predictions</h1>
+    <p>Football predictions and match analysis</p>
+</header>
 
-    <h2>Today's Predictions</h2>
+<div class="container">
 
-    <p><strong>Match:</strong> Example FC vs Example United</p>
-    <p><strong>Prediction:</strong> Over 2.5 Goals</p>
-    <p><strong>Kickoff:</strong> 7:00 PM</p>
-    <p><strong>Confidence:</strong> Good attacking form and recent goal statistics.</p>
-    <p><strong>Result:</strong> Pending</p>
+    <!-- PHOTO / SCREENSHOT -->
+    <div class="photo">
+        <h2>📸 Prediction Screenshot</h2>
+
+        <img src="prediction.jpg" alt="Prediction Screenshot">
+    </div>
+
+    <!-- MATCH -->
+    <div class="card">
+        <h2>🔥 Today's Match</h2>
+
+        <div class="match">
+            Example FC vs Example United
+        </div>
+
+        <p class="info"><strong>Kickoff:</strong> 7:00 PM</p>
+
+        <p class="info"><strong>Prediction:</strong> 🔒 Locked</p>
+
+        <div class="locked">
+            <h3>🔐 Prediction Locked</h3>
+
+            <p>Unlock to view today's prediction.</p>
+
+            <a href="#" class="unlock-btn">Unlock Prediction</a>
+        </div>
+    </div>
+
+    <!-- SECOND MATCH -->
+    <div class="card">
+        <h2>⚽ Match 2</h2>
+
+        <div class="match">
+            Team A vs Team B
+        </div>
+
+        <p class="info"><strong>Kickoff:</strong> 9:00 PM</p>
+
+        <p class="info"><strong>Prediction:</strong> 🔒 Locked</p>
+
+        <div class="locked">
+            <h3>🔐 Prediction Locked</h3>
+            <p>Unlock to view the prediction.</p>
+
+            <a href="#" class="unlock-btn">Unlock Prediction</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Africa Football Predictions
+</footer>
 
 </body>
 </html>
