@@ -1,162 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africa Football Predictions</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Africa Football Analysis</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f3f4f6;
-            color: #111827;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        header {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-        }
+    body {
+      background: #f4f6f8;
+      color: #111;
+      min-height: 100vh;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
+    header {
+      background: #111;
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+    }
 
-        header p {
-            margin: 8px 0 0;
-        }
+    header h1 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
 
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
+    header p {
+      color: #ccc;
+      font-size: 14px;
+    }
 
-        .photo {
-            background: white;
-            padding: 10px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
+    .container {
+      max-width: 600px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
 
-        .photo img {
-            width: 100%;
-            border-radius: 8px;
-        }
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
 
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
 
-        .match {
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 15px;
-        }
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
 
-        .info {
-            margin: 10px 0;
-        }
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #d71920;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        .locked {
-            background: #111827;
-            color: white;
-            padding: 18px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 15px;
-        }
+    button:hover {
+      background: #b9141a;
+    }
 
-        .unlock-btn {
-            display: inline-block;
-            background: #16a34a;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-        }
+    #result {
+      display: none;
+    }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #6b7280;
-        }
-    </style>
+    .result-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .team {
+      padding: 12px;
+      background: #f1f3f5;
+      border-radius: 9px;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>⚽ Africa Football Predictions</h1>
-    <p>Football predictions and match analysis</p>
-</header>
+  <header>
+    <h1>⚽ Africa Football Analysis</h1>
+    <p>Simple football match analysis</p>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-    <!-- PHOTO / SCREENSHOT -->
-    <div class="photo">
-        <h2>📸 Prediction Screenshot</h2>
-
-        <img src="prediction.jpg" alt="Prediction Screenshot">
-    </div>
-
-    <!-- MATCH -->
     <div class="card">
-        <h2>🔥 Today's Match</h2>
+      <label for="homeTeam">Home Team</label>
+      <input
+        type="text"
+        id="homeTeam"
+        placeholder="Enter home team"
+      >
 
-        <div class="match">
-            Example FC vs Example United
-        </div>
+      <label for="awayTeam">Away Team</label>
+      <input
+        type="text"
+        id="awayTeam"
+        placeholder="Enter away team"
+      >
 
-        <p class="info"><strong>Kickoff:</strong> 7:00 PM</p>
-
-        <p class="info"><strong>Prediction:</strong> 🔒 Locked</p>
-
-        <div class="locked">
-            <h3>🔐 Prediction Locked</h3>
-
-            <p>Unlock to view today's prediction.</p>
-
-            <a href="#" class="unlock-btn">Unlock Prediction</a>
-        </div>
+      <button onclick="analyzeMatch()">Analyze Match</button>
     </div>
 
-    <!-- SECOND MATCH -->
-    <div class="card">
-        <h2>⚽ Match 2</h2>
+    <div class="card" id="result">
 
-        <div class="match">
-            Team A vs Team B
-        </div>
+      <div class="result-title">
+        📊 Match Analysis
+      </div>
 
-        <p class="info"><strong>Kickoff:</strong> 9:00 PM</p>
+      <div class="team">
+        <strong>Home Team:</strong>
+        <span id="homeResult"></span>
+      </div>
 
-        <p class="info"><strong>Prediction:</strong> 🔒 Locked</p>
+      <div class="team">
+        <strong>Away Team:</strong>
+        <span id="awayResult"></span>
+      </div>
 
-        <div class="locked">
-            <h3>🔐 Prediction Locked</h3>
-            <p>Unlock to view the prediction.</p>
+      <p>
+        This analysis focuses on comparing the two teams.
+      </p>
 
-            <a href="#" class="unlock-btn">Unlock Prediction</a>
-        </div>
+      <p class="note">
+        This is a basic demonstration. It does not use live football
+        statistics and should not be treated as a guaranteed match result.
+      </p>
+
     </div>
 
-</div>
+  </div>
 
-<footer>
-    © 2026 Africa Football Predictions
-</footer>
+  <footer>
+    © 2026 Africa Football Analysis
+  </footer>
+
+  <script>
+    function analyzeMatch() {
+      const home = document.getElementById("homeTeam").value.trim();
+      const away = document.getElementById("awayTeam").value.trim();
+
+      if (home === "" || away === "") {
+        alert("Please enter both teams.");
+        return;
+      }
+
+      document.getElementById("homeResult").textContent = home;
+      document.getElementById("awayResult").textContent = away;
+
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
