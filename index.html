@@ -1,195 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Africa Football Analysis</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Africa Football Analysis</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f4f6f8;
-      color: #111;
-      min-height: 100vh;
-    }
-
-    header {
-      background: #111;
-      color: white;
-      padding: 25px 15px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 25px;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      color: #ccc;
-      font-size: 14px;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 25px auto;
-      padding: 0 15px;
-    }
-
-    .card {
-      background: white;
-      padding: 22px;
-      border-radius: 15px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 10px;
-      background: #d71920;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #b9141a;
-    }
-
-    #result {
-      display: none;
-    }
-
-    .result-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .team {
-      padding: 12px;
-      background: #f1f3f5;
-      border-radius: 9px;
-      margin-bottom: 10px;
-    }
-
-    .note {
-      margin-top: 15px;
-      font-size: 13px;
-      color: #666;
-      line-height: 1.5;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #777;
-      font-size: 13px;
-    }
-  </style>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#f3f5f7;color:#111}
+header{background:#111;color:white;text-align:center;padding:25px 15px}
+header h1{margin:0 0 8px;font-size:25px}
+header p{margin:0;color:#ccc}
+.container{max-width:650px;margin:20px auto;padding:15px}
+.card{background:white;padding:20px;border-radius:15px;margin-bottom:18px;box-shadow:0 3px 12px #0001}
+h2{margin-top:0}
+label{display:block;font-weight:bold;margin:14px 0 7px}
+input{width:100%;padding:13px;border:1px solid #ddd;border-radius:9px;font-size:16px}
+button{width:100%;padding:15px;margin-top:20px;border:0;border-radius:9px;background:#d71920;color:white;font-size:17px;font-weight:bold}
+.stat{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee}
+.result{display:none}
+.note{font-size:13px;color:#666;line-height:1.5;margin-top:18px}
+footer{text-align:center;color:#777;padding:25px;font-size:13px}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>⚽ Africa Football Analysis</h1>
-    <p>Simple football match analysis</p>
-  </header>
+<header>
+<h1>⚽ Africa Football Analysis</h1>
+<p>Compare football statistics</p>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <div class="card">
-      <label for="homeTeam">Home Team</label>
-      <input
-        type="text"
-        id="homeTeam"
-        placeholder="Enter home team"
-      >
+<div class="card">
+<h2>Match Teams</h2>
 
-      <label for="awayTeam">Away Team</label>
-      <input
-        type="text"
-        id="awayTeam"
-        placeholder="Enter away team"
-      >
+<label>Home Team</label>
+<input id="home" placeholder="Example: Arsenal">
 
-      <button onclick="analyzeMatch()">Analyze Match</button>
-    </div>
+<label>Away Team</label>
+<input id="away" placeholder="Example: Chelsea">
+</div>
 
-    <div class="card" id="result">
+<div class="card">
+<h2>Team Statistics</h2>
 
-      <div class="result-title">
-        📊 Match Analysis
-      </div>
+<label>Home Team Goals Scored</label>
+<input id="hg" type="number" min="0" placeholder="0">
 
-      <div class="team">
-        <strong>Home Team:</strong>
-        <span id="homeResult"></span>
-      </div>
+<label>Home Team Goals Conceded</label>
+<input id="hc" type="number" min="0" placeholder="0">
 
-      <div class="team">
-        <strong>Away Team:</strong>
-        <span id="awayResult"></span>
-      </div>
+<label>Away Team Goals Scored</label>
+<input id="ag" type="number" min="0" placeholder="0">
 
-      <p>
-        This analysis focuses on comparing the two teams.
-      </p>
+<label>Away Team Goals Conceded</label>
+<input id="ac" type="number" min="0" placeholder="0">
 
-      <p class="note">
-        This is a basic demonstration. It does not use live football
-        statistics and should not be treated as a guaranteed match result.
-      </p>
+<button onclick="analyze()">Compare Statistics</button>
+</div>
 
-    </div>
+<div class="card result" id="result">
+<h2>📊 Statistical Comparison</h2>
 
-  </div>
+<div class="stat">
+<strong id="homeName"></strong>
+<span id="homeAttack"></span>
+</div>
 
-  <footer>
-    © 2026 Africa Football Analysis
-  </footer>
+<div class="stat">
+<strong id="awayName"></strong>
+<span id="awayAttack"></span>
+</div>
 
-  <script>
-    function analyzeMatch() {
-      const home = document.getElementById("homeTeam").value.trim();
-      const away = document.getElementById("awayTeam").value.trim();
+<p id="summary"></p>
 
-      if (home === "" || away === "") {
-        alert("Please enter both teams.");
-        return;
-      }
+<p class="note">
+This is a statistical comparison based only on the information entered above.
+It is not a guaranteed match result.
+</p>
+</div>
 
-      document.getElementById("homeResult").textContent = home;
-      document.getElementById("awayResult").textContent = away;
+</div>
 
-      document.getElementById("result").style.display = "block";
-    }
-  </script>
+<footer>
+© 2026 Africa Football Analysis
+</footer>
+
+<script>
+function analyze(){
+
+const home=document.getElementById("home").value.trim();
+const away=document.getElementById("away").value.trim();
+
+const hg=Number(document.getElementById("hg").value);
+const hc=Number(document.getElementById("hc").value);
+const ag=Number(document.getElementById("ag").value);
+const ac=Number(document.getElementById("ac").value);
+
+if(!home || !away){
+alert("Please enter both team names.");
+return;
+}
+
+document.getElementById("homeName").textContent=home;
+document.getElementById("awayName").textContent=away;
+
+document.getElementById("homeAttack").textContent=
+"Goals scored: "+hg+" | Conceded: "+hc;
+
+document.getElementById("awayAttack").textContent=
+"Goals scored: "+ag+" | Conceded: "+ac;
+
+let summary="The statistics show a comparison between both teams.";
+
+if(hg>ag && hc<ac){
+summary=home+" has stronger attacking and defensive numbers in the statistics entered.";
+}
+else if(ag>hg && ac<hc){
+summary=away+" has stronger attacking and defensive numbers in the statistics entered.";
+}
+else{
+summary="The statistics are mixed, so both teams have areas that compare closely.";
+}
+
+document.getElementById("summary").textContent=summary;
+document.getElementById("result").style.display="block";
+}
+</script>
 
 </body>
 </html>
